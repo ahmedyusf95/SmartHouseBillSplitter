@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SmartHouseBillSplitter</string>
+    <string name="action_settings">Settings</string>
+    <string name="new_expense">Add Expense </string>
+    <string name="expense_title_label">Expense name</string>
+    <string name="amount_label">Expense Amount</string>
+    <string name="expense_title_hint"> name of the expense here..</string>
+    <string name="expense_amount_hint">amount of expense here..</string>
+    <string name="Expense_Fragment_Title">Expenses</string>
+    <string name="Task_Fragment_Title">Tasks</string>
+    <string name="Task_title_label">Task title</string>
+    <string name="Description_label">Task description</string>
+    <string name="title_activity_expense_details">ExpenseDetailsActivity</string>
+    <string name="log_error">Read failed</string>
+    <string name="edit_amount">Edit amount</string>
+    <string name="edit_title">Edit title</string>
+    <string name="title_activity_task_details">TasksDetailsActivity</string>
+</resources>

@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="horizontal"
+   >
+
+<ImageView
+   android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:padding="4dp"
+
+
+    android:src="@drawable/shopping"
+    android:id="@+id/ExpenseImage"
+    ></ImageView>
+
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/name"
+    android:textStyle="bold"
+    android:layout_toRightOf="@+id/ExpenseImage"
+
+    />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/amount"
+        android:layout_alignParentRight="true"
+        android:padding="4dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/CreatedBy"
+
+        android:layout_below="@+id/name"
+        android:layout_toRightOf="@+id/ExpenseImage"
+        />
+    <TextView
+        android:id="@+id/LastUpdatedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/amount"
+        android:layout_alignParentRight="true"
+
+
+
+
+        />
+
+
+
+
+
+
+</RelativeLayout>
