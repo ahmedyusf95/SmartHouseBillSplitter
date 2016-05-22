@@ -7,16 +7,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
-import com.firebase.client.Firebase;
-import com.firebase.client.Logger;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 
     @Override
@@ -25,8 +22,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.fragment_container);
 
 
-        Firebase.setAndroidContext(this);
-        Firebase.getDefaultConfig().setLogLevel(Logger.Level.DEBUG);
+
+
+
+
 
 
 
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         SetScreen();
+        Toast.makeText(this,EncodedEmail, Toast.LENGTH_LONG).show();
 
 
 
@@ -71,9 +71,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.menu_item_new_expense) {
-            AddExpenseDialogFragment addExpenseDialogFragment = new AddExpenseDialogFragment();
-            addExpenseDialogFragment.show(getFragmentManager(), "AddExpenseDialog");
+        if (id == R.id.menu_item_add_housemate) {
+
+            AddHouseMateDialogFragment addHouseMateDialogFragment = AddHouseMateDialogFragment.newInstance(EncodedEmail);
+            addHouseMateDialogFragment.show(MainActivity.this.getFragmentManager(), "AddHouseMateDialog");
+
 
         }
 
@@ -102,13 +104,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void ShowAddExpenseDialog(View view){
 
-        AddExpenseDialogFragment addExpenseDialogFragment = new AddExpenseDialogFragment();
+        AddExpenseDialogFragment addExpenseDialogFragment = AddExpenseDialogFragment.newInstance(EncodedEmail);
         addExpenseDialogFragment.show(MainActivity.this.getFragmentManager(), "AddExpenseDialog");
     }
 
     public void ShowAddTaskDialog(View view){
         AddTaskDialogFragment addTaskDialogFragment = new AddTaskDialogFragment();
         addTaskDialogFragment.show(MainActivity.this.getFragmentManager(),  "AddTaskDialog");
+    }
+
+    public void ShowAddHouseMateDialog(View view){
+       AddHouseMateDialogFragment addHouseMateDialogFragment = AddHouseMateDialogFragment.newInstance(EncodedEmail);
+        addHouseMateDialogFragment.show(MainActivity.this.getFragmentManager(), "AddHouseMateDialog");
+
+
     }
 
     public class SectionPagerAdapter extends FragmentStatePagerAdapter{

@@ -1,11 +1,13 @@
 package yusuf.ahmed.smarthousebillsplitter;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -85,6 +87,35 @@ public class TasksDetailsActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.edit) {
+            showEditTaskDialog();
+            return true;
+        } else
+
+        if(id == R.id.delete){
+            showDeleteTaskDialog();
+            return  true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    public void showEditTaskDialog(){
+
+        DialogFragment fragment = EditTaskDialogFragment.newInstanace(mTask, mTaskId);
+        fragment.show(this.getFragmentManager(), "EditTaskDialogFragment");
+    }
+
+    public  void  showDeleteTaskDialog(){
+
+        DialogFragment fragment = DeleteTaskDialogFragment.newInstance(mTask, mTaskId);
+        fragment.show(this.getFragmentManager(), "DeleteTaskDialogFragment");
     }
 
 

@@ -22,13 +22,16 @@ import yusuf.ahmed.smarthousebillsplitter.Utils.Constants;
  */
 public class AddExpenseDialogFragment extends DialogFragment {
 
+    String EncodedEmail;
+
 
     private EditText editTextexpensetitle;
     private EditText editTextexpenseamount;
 
-    public static AddExpenseDialogFragment newInstance() {
+    public static AddExpenseDialogFragment newInstance(String encodedEmail) {
      AddExpenseDialogFragment addExpenseDialogFragment = new AddExpenseDialogFragment();
         Bundle bundle = new Bundle();
+        bundle.putString(Constants.KEY_ENCODED_EMAIL, encodedEmail);
         addExpenseDialogFragment.setArguments(bundle);
         return addExpenseDialogFragment;
 
@@ -37,10 +40,15 @@ public class AddExpenseDialogFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        EncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL);
+
     }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -53,7 +61,7 @@ public class AddExpenseDialogFragment extends DialogFragment {
        editTextexpenseamount.setOnEditorActionListener(new TextView.OnEditorActionListener() {
            @Override
            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-               if (actionId == EditorInfo.IME_ACTION_DONE || event.getAction() == event.ACTION_DOWN ){
+               if (actionId == EditorInfo.IME_ACTION_DONE || event.getAction() == KeyEvent.ACTION_DOWN){
                    Addexpense();
                }
                return true;
@@ -63,7 +71,7 @@ public class AddExpenseDialogFragment extends DialogFragment {
         editTextexpensetitle.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE || event.getAction() == event.ACTION_DOWN) {
+                if (actionId == EditorInfo.IME_ACTION_DONE || event.getAction() == KeyEvent.ACTION_DOWN) {
                     Addexpense();
 
                 }
@@ -90,6 +98,7 @@ public class AddExpenseDialogFragment extends DialogFragment {
     }
 public void Addexpense(){
 
+
     Firebase ref = new Firebase(Constants.Firebase_URL);
     Firebase Expenseref = new Firebase(Constants.Firebase_URL_Expenses);
 
@@ -97,7 +106,7 @@ public void Addexpense(){
     String userEnteredTitle = editTextexpensetitle.getText().toString();
     String userEnteredAmount = editTextexpenseamount.getText().toString();
 
-    Expense expense = new Expense(userEnteredAmount, "anon", userEnteredTitle );
+    Expense expense = new Expense(userEnteredAmount, EncodedEmail, userEnteredTitle );
 
 
          newExpenseListRef.setValue(expense);

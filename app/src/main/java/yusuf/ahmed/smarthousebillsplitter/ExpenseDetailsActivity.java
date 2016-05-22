@@ -95,6 +95,9 @@ public class ExpenseDetailsActivity extends AppCompatActivity {
         if (id == R.id.edit) {
             showEditExpenseDialog();
             return true;
+        } else
+        if(id == R.id.delete){
+            showRemoveExpenseDialog();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -104,6 +107,12 @@ public class ExpenseDetailsActivity extends AppCompatActivity {
 
         DialogFragment fragment = EditExpenseDialogFragment.newInstanace(mExpense, mExpenseId);
         fragment.show(this.getFragmentManager(), "EditExpenseDialogFragment");
+    }
+
+    public void showRemoveExpenseDialog(){
+         DialogFragment fragment = RemoveExpenseDialogFragment.newInstance(mExpense, mExpenseId);
+         fragment.show(this.getFragmentManager(), "RemoveExpenseDialogFragment");
+
     }
 
 

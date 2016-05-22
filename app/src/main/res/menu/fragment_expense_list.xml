@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_item_new_expense"
-        android:icon="@drawable/ic_menu_add"
-        android:title="@string/new_expense"
+        android:id="@+id/menu_item_add_housemate"
+        android:icon="@drawable/ic_action_add_housemate"
+        android:title="@string/add_housemate"
         app:showAsAction="ifRoom|withText"
         />
 

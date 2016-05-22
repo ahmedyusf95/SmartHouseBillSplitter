@@ -15,4 +15,13 @@
     <string name="edit_amount">Edit amount</string>
     <string name="edit_title">Edit title</string>
     <string name="title_activity_task_details">TasksDetailsActivity</string>
+    <string name="edit_task_description">Edit task description</string>
+    <string name="edit__task_title">Edit task title</string>
+
+    <string name="oauth2">oauth2:%s</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="add_housemate">Add new housemate</string>
+    <string name="housemate_hint">Email of Housemate</string>
+    <string name="housemate_hint_name">Enter Name of your Housemate</string>
+
 </resources>
